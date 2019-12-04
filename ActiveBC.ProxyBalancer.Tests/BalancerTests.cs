@@ -54,7 +54,7 @@ namespace ActiveBC.ProxyBalancer.Tests
             var balancer = new Balancer(configuration);
 
             var pool = new List<Thread>();
-            for (var i = 0; i < 1500; i++)
+            for (var i = 0; i < 150; i++)
             {
                 var thread = new Thread(() =>
                 {
@@ -66,7 +66,7 @@ namespace ActiveBC.ProxyBalancer.Tests
             }
             SpinWait.SpinUntil(() => pool.All(x => !x.IsAlive));
 
-            Assert.Equal(1500, balancer.GetConnectionsCount("localhost:9000"));
+            Assert.Equal(150, balancer.GetConnectionsCount("localhost:9000"));
         }
 
         [Fact]
@@ -81,7 +81,7 @@ namespace ActiveBC.ProxyBalancer.Tests
             var balancer = new Balancer(configuration);
 
             var pool = new List<Thread>();
-            for (var i = 0; i < 1500; i++)
+            for (var i = 0; i < 150; i++)
             {
                 var thread = new Thread(() =>
                 {
@@ -92,7 +92,7 @@ namespace ActiveBC.ProxyBalancer.Tests
                 pool.Add(thread);
             }
 
-            for (var i = 0; i < 1500; i++)
+            for (var i = 0; i < 150; i++)
             {
                 var thread = new Thread(() =>
                 {
@@ -120,7 +120,7 @@ namespace ActiveBC.ProxyBalancer.Tests
             var balancer = new Balancer(configuration);
 
             var pool = new List<Thread>();
-            for (var i = 0; i < 1500; i++)
+            for (var i = 0; i < 150; i++)
             {
                 var thread = new Thread(() =>
                 {
@@ -132,8 +132,8 @@ namespace ActiveBC.ProxyBalancer.Tests
             }
             SpinWait.SpinUntil(() => pool.All(x => !x.IsAlive));
 
-            Assert.Equal(750, balancer.GetConnectionsCount("localhost:9000"));
-            Assert.Equal(750, balancer.GetConnectionsCount("localhost:9001"));
+            Assert.Equal(75, balancer.GetConnectionsCount("localhost:9000"));
+            Assert.Equal(75, balancer.GetConnectionsCount("localhost:9001"));
         }
 
         [Fact]
@@ -149,7 +149,7 @@ namespace ActiveBC.ProxyBalancer.Tests
             var balancer = new Balancer(configuration);
 
             var pool = new List<Thread>();
-            for (var i = 0; i < 1500; i++)
+            for (var i = 0; i < 150; i++)
             {
                 var thread = new Thread(() =>
                 {
